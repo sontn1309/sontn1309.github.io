@@ -47,157 +47,156 @@
 
 <body class="login-page sidebar-collapse">
   <div ng-app="sontn1309" ng-controller="ctrl1">
-      <nav class="navbar navbar-color-on-scroll navbar-transparent  fixed-top  navbar-expand-lg "
-      color-on-scroll="100" id="sectionsNav">
+    <nav class="navbar navbar-color-on-scroll navbar-transparent  fixed-top  navbar-expand-lg " color-on-scroll="100"
+      id="sectionsNav">
       <div class="container">
-          <div class="navbar-translate">
-              <a class="navbar-brand" href="">
-                  Trần Ngọc Sơn - PS08499</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
-                  aria-label="Toggle navigation">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="navbar-toggler-icon"></span>
-                  <span class="navbar-toggler-icon"></span>
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-          </div>
-          <div class="collapse navbar-collapse">
-              <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                      <a href="../index.html" class=" nav-link" >
-                          <i class="material-icons">account_balance</i> Trang chủ
-                      </a>
-                  </li>
-                  <li class="dropdown nav-item">
-                      <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                          <i class="material-icons">apps</i> Danh mục môn học
-                      </a>
+        <div class="navbar-translate">
+          <a class="navbar-brand" href="">
+            Trần Ngọc Sơn - PS08499</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="../index.html" class=" nav-link">
+                <i class="material-icons">account_balance</i> Trang chủ
+              </a>
+            </li>
+            <li class="dropdown nav-item">
+              <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <i class="material-icons">apps</i> Danh mục môn học
+              </a>
 
-                      <div class="dropdown-menu dropdown-with-icons scrollable-menu ">
-                          <div>
-                              <a href="../pages/subjects.html" class="dropdown-item">
-                                  <i class="material-icons">layers</i><span>Tất cả môn học</span>
-                              </a>
-                          </div>
-                          <div ng-repeat="show in Subjects">
-                              <a href="" class="dropdown-item">
-                                  <i class="material-icons">layers</i><span>{{show.Name}}</span>
-                              </a>
-                          </div>
-                      </div>
-                  </li>
-                  <li class="dropdown nav-item">
-                      <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                          <i class="material-icons">view_day</i> Tài khoản
-                      </a>
-                      <div class="dropdown-menu dropdown-with-icons">
-                          <a href="../pages/login-page.html" class="dropdown-item">
-                              <i class="material-icons">dns</i> Đăng nhập
-                          </a>
-
-                      </div>
-                  </li>
-                  <li class="dropdown nav-item">
-                      <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                          <i class="material-icons">view_carousel</i> Trợ giúp
-                      </a>
-                      <div class="dropdown-menu dropdown-with-icons">
-                          <a href="#" class="dropdown-item">
-                              <i class="material-icons">account_balance</i>Liên hệ
-                          </a>
-                          <a href="#" class="dropdown-item">
-                              <i class="material-icons">account_balance</i>Góp ý
-                          </a>
-
-                      </div>
-                  </li>
-                  <li class="button-container nav-item iframe-extern">
-                      <a href="../pages/login-page.html" class="btn  btn-rose btn-block">
-                          <i class="material-icons">account_circle</i> Đăng nhập
-                      </a>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  </nav>
-  <div class="page-header header-filter" style="background-image: url('../assets/img/bg7.jpg'); background-size: cover; background-position: top center;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-          <form class="form" method="" action="">
-            <div class="card card-login card-hidden">
-              <div class="card-header card-header-primary text-center">
-                <h4 class="card-title">Đăng Nhập</h4>
-                <div class="social-line">
-                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                    <i class="fa fa-facebook-square"></i>
+              <div class="dropdown-menu dropdown-with-icons scrollable-menu ">
+                <div>
+                  <a href="../pages/subjects.html" class="dropdown-item">
+                    <i class="material-icons">layers</i><span>Tất cả môn học</span>
                   </a>
-                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                    <i class="fa fa-google-plus"></i>
+                </div>
+                <div ng-repeat="show in Subjects">
+                  <a href="" class="dropdown-item">
+                    <i class="material-icons">layers</i><span>{{show.Name}}</span>
                   </a>
                 </div>
               </div>
-              <div class="card-body ">
-              
-                <span class="bmd-form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">face</i>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="First Name...">
-                  </div>
-                </span>
-               
-                <span class="bmd-form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">lock_outline</i>
-                      </span>
-                    </div>
-                    <input type="password" class="form-control" placeholder="Password...">
-                  </div>
-                </span>
+            </li>
+            <li class="dropdown nav-item">
+              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <i class="material-icons">view_day</i> Tài khoản
+              </a>
+              <div class="dropdown-menu dropdown-with-icons">
+                <a href="../pages/login-page.html" class="dropdown-item">
+                  <i class="material-icons">dns</i> Đăng nhập
+                </a>
+                <a href="../pages/login-page.html" class="dropdown-item">
+                  <i class="material-icons">dns</i> Thông tin tài khoản
+                </a>
+
               </div>
-              <div class="card-footer justify-content-center">
-                <a href="#pablo" class="btn btn-rose btn-link  btn-lg">Đăng Nhập</a>
+            </li>
+            <li class="dropdown nav-item">
+              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <i class="material-icons">view_carousel</i> Trợ giúp
+              </a>
+              <div class="dropdown-menu dropdown-with-icons">
+                <a href="../pages/contact.html" class="dropdown-item">
+                  <i class="material-icons">account_balance</i>Liên hệ - Góp ý
+                </a>
               </div>
-            </div>
-          </form>
+            </li>
+            <li class="button-container nav-item iframe-extern">
+              <a href="../pages/login-page.html" class="btn  btn-rose btn-block">
+                <i class="material-icons">account_circle</i> Đăng nhập
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-      <footer class="footer">
-          <div class="container">
+    </nav>
+    <div class="page-header header-filter"
+      style="background-image: url('../assets/img/bg7.jpg'); background-size: cover; background-position: top center;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+            <form class="form" method="" action="">
+              <div class="card card-login card-hidden">
+                <div class="card-header card-header-primary text-center">
+                  <h4 class="card-title">Đăng Nhập</h4>
+                  <div class="social-line">
+                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                      <i class="fa fa-facebook-square"></i>
+                    </a>
+                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                      <i class="fa fa-google-plus"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body ">
 
-              <div class="copyright float-right">
-                  &copy;
-                  <script>
-                      document.write(new Date().getFullYear())
-                  </script>, Update <i class="material-icons">favorite</i> by
-                  <a href="https://www.creative-tim.com" target="_blank">Ngọc Sơn</a>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="material-icons">face</i>
+                        </span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="First Name...">
+                    </div>
+                  </span>
+
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="material-icons">lock_outline</i>
+                        </span>
+                      </div>
+                      <input type="password" class="form-control" placeholder="Password...">
+                    </div>
+                  </span>
+                </div>
+                <div class="card-footer justify-content-center">
+                  <a href="#pablo" class="btn btn-rose btn-link  btn-lg">Đăng Nhập</a>
+                </div>
               </div>
+            </form>
           </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="container">
+
+          <div class="copyright float-right">
+            &copy;
+            <script>
+              document.write(new Date().getFullYear())
+            </script>, Update <i class="material-icons">favorite</i> by
+            <a href="https://www.creative-tim.com" target="_blank">Ngọc Sơn</a>
+          </div>
+        </div>
       </footer>
     </div>
   </div>
   <script>
+    var app = angular.module("sontn1309", []);
+    app.controller("ctrl1", function ($scope, $http) {
+      $scope.Subjects = [];
 
-      var app = angular.module("sontn1309", []);
-      app.controller("ctrl1", function ($scope, $http) {
-          $scope.Subjects = [];
-
-          $http.get("../assets/db/Subjects.JSON").then(function (response) {
-              $scope.Subjects = response.data.x;
-          }, function (response) {
-              alert("Erroor");
-          });
+      $http.get("../assets/db/Subjects.JSON").then(function (response) {
+        $scope.Subjects = response.data.x;
+      }, function (response) {
+        alert("Erroor");
       });
+    });
   </script>
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

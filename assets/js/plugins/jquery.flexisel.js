@@ -4,9 +4,9 @@
  * Description: Responsive carousel jQuery plugin
  * Author: 9bit Studios
  * Copyright 2016, 9bit Studios
- * https://www.9bitstudios.com
+ * http://www.9bitstudios.com
  * Free to use and abuse under the MIT license.
- * https://www.opensource.org/licenses/mit-license.php
+ * http://www.opensource.org/licenses/mit-license.php
  */
 
 /* =========================================================================

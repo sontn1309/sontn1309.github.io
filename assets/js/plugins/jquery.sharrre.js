@@ -2,7 +2,7 @@
  *  Sharrre.com - Make your sharing widget!
  *  Version: beta 1.3.5
  *  Author: Julien Hany
- *  License: MIT https://en.wikipedia.org/wiki/MIT_License or GPLv2 https://en.wikipedia.org/wiki/GNU_General_Public_License
+ *  License: MIT http://en.wikipedia.org/wiki/MIT_License or GPLv2 http://en.wikipedia.org/wiki/GNU_General_Public_License
  */
 
 ;
@@ -40,14 +40,14 @@
       click: function() {}, //personalize click event with this callback function
       render: function() {}, //personalize render event with this callback function
       buttons: { //settings for buttons
-        googlePlus: { //https://www.google.com/webmasters/+1/button/
+        googlePlus: { //http://www.google.com/webmasters/+1/button/
           url: '', //if you need to personnalize button url
           urlCount: false, //if you want to use personnalize button url on global counter
           size: 'medium',
           lang: 'en-US',
           annotation: ''
         },
-        facebook: { //https://developers.facebook.com/docs/reference/plugins/like/
+        facebook: { //http://developers.facebook.com/docs/reference/plugins/like/
           url: '', //if you need to personalize url button
           urlCount: false, //if you want to use personnalize button url on global counter
           action: 'like',
@@ -59,7 +59,7 @@
           font: '',
           lang: 'en_US'
         },
-        twitter: { //https://twitter.com/about/resources/tweetbutton
+        twitter: { //http://twitter.com/about/resources/tweetbutton
           url: '', //if you need to personalize url button
           urlCount: false, //if you want to use personnalize button url on global counter
           count: 'horizontal',
@@ -68,7 +68,7 @@
           related: '',
           lang: 'en'
         },
-        digg: { //https://about.digg.com/downloads/button/smart
+        digg: { //http://about.digg.com/downloads/button/smart
           url: '', //if you need to personalize url button
           urlCount: false, //if you want to use personnalize button url on global counter
           type: 'DiggCompact'
@@ -78,17 +78,17 @@
           urlCount: false, //if you want to use personnalize button url on global counter
           size: 'medium' //medium or tall
         },
-        stumbleupon: { //https://www.stumbleupon.com/badges/
+        stumbleupon: { //http://www.stumbleupon.com/badges/
           url: '', //if you need to personalize url button
           urlCount: false, //if you want to use personnalize button url on global counter
           layout: '1'
         },
-        linkedin: { //https://developer.linkedin.com/plugins/share-button
+        linkedin: { //http://developer.linkedin.com/plugins/share-button
           url: '', //if you need to personalize url button
           urlCount: false, //if you want to use personnalize button url on global counter
           counter: ''
         },
-        pinterest: { //https://pinterest.com/about/goodies/
+        pinterest: { //http://pinterest.com/about/goodies/
           url: '', //if you need to personalize url button
           media: '',
           description: '',
@@ -103,16 +103,16 @@
 
       //new FQL method by Sire
       facebook: "https://graph.facebook.com/fql?q=SELECT%20url,%20normalized_url,%20share_count,%20like_count,%20comment_count,%20total_count,commentsbox_count,%20comments_fbid,%20click_count%20FROM%20link_stat%20WHERE%20url=%27{url}%27&callback=?",
-      //old method facebook: "https://graph.facebook.com/?id={url}&callback=?",
-      //facebook : "https://api.ak.facebook.com/restserver.php?v=1.0&method=links.getStats&urls={url}&format=json"
+      //old method facebook: "http://graph.facebook.com/?id={url}&callback=?",
+      //facebook : "http://api.ak.facebook.com/restserver.php?v=1.0&method=links.getStats&urls={url}&format=json"
 
-      twitter: "https://cdn.api.twitter.com/1/urls/count.json?url={url}&callback=?",
-      digg: "https://services.digg.com/2.0/story.getInfo?links={url}&type=javascript&callback=?",
-      delicious: 'https://feeds.delicious.com/v2/json/urlinfo/data?url={url}&callback=?',
-      //stumbleupon: "https://www.stumbleupon.com/services/1.01/badge.getinfo?url={url}&format=jsonp&callback=?",
+      twitter: "http://cdn.api.twitter.com/1/urls/count.json?url={url}&callback=?",
+      digg: "http://services.digg.com/2.0/story.getInfo?links={url}&type=javascript&callback=?",
+      delicious: 'http://feeds.delicious.com/v2/json/urlinfo/data?url={url}&callback=?',
+      //stumbleupon: "http://www.stumbleupon.com/services/1.01/badge.getinfo?url={url}&format=jsonp&callback=?",
       stumbleupon: "",
-      linkedin: "https://www.linkedin.com/countserv/count/share?format=jsonp&url={url}&callback=?",
-      pinterest: "https://api.pinterest.com/v1/urls/count.json?url={url}&callback=?"
+      linkedin: "http://www.linkedin.com/countserv/count/share?format=jsonp&url={url}&callback=?",
+      pinterest: "http://api.pinterest.com/v1/urls/count.json?url={url}&callback=?"
     },
     /* Load share buttons asynchronously
     ================================================== */
@@ -178,12 +178,12 @@
             url: '//platform.twitter.com/widgets.js',
             dataType: 'script',
             cache: true
-          }); //https://stackoverflow.com/q/6536108
+          }); //http://stackoverflow.com/q/6536108
         }
       },
       digg: function(self) {
         var sett = self.options.buttons.digg;
-        $(self.element).find('.buttons').append('<div class="button digg"><a class="DiggThisButton ' + sett.type + '" rel="nofollow external" href="https://digg.com/submit?url=' + encodeURIComponent((sett.url !== '' ? sett.url : self.options.url)) + '"></a></div>');
+        $(self.element).find('.buttons').append('<div class="button digg"><a class="DiggThisButton ' + sett.type + '" rel="nofollow external" href="http://digg.com/submit?url=' + encodeURIComponent((sett.url !== '' ? sett.url : self.options.url)) + '"></a></div>');
         var loading = 0;
         if (typeof __DBW === 'undefined' && loading == 0) {
           loading = 1;
@@ -215,7 +215,7 @@
           '<div class="button delicious"><div style="' + css + 'font:12px Arial,Helvetica,sans-serif;cursor:pointer;color:#666666;display:inline-block;float:none;height:20px;line-height:normal;margin:0;padding:0;text-indent:0;vertical-align:baseline;">' +
           '<div style="' + cssCount + 'background-color:#fff;margin-bottom:5px;overflow:hidden;text-align:center;border:1px solid #ccc;border-radius:3px;">' + count + '</div>' +
           '<div style="' + cssShare + 'display:block;padding:0;text-align:center;text-decoration:none;width:50px;background-color:#7EACEE;border:1px solid #40679C;border-radius:3px;color:#fff;">' +
-          '<img src="https://www.delicious.com/static/img/delicious.small.gif" height="10" width="10" alt="Delicious" /> Add</div></div></div>');
+          '<img src="http://www.delicious.com/static/img/delicious.small.gif" height="10" width="10" alt="Delicious" /> Add</div></div></div>');
 
         $(self.element).find('.delicious').on('click', function() {
           self.openPopup('delicious');
@@ -265,7 +265,7 @@
       },
       pinterest: function(self) {
         var sett = self.options.buttons.pinterest;
-        $(self.element).find('.buttons').append('<div class="button pinterest"><a href="https://pinterest.com/pin/create/button/?url=' + (sett.url !== '' ? sett.url : self.options.url) + '&media=' + sett.media + '&description=' + sett.description + '" class="pin-it-button" count-layout="' + sett.layout + '">Pin It</a></div>');
+        $(self.element).find('.buttons').append('<div class="button pinterest"><a href="http://pinterest.com/pin/create/button/?url=' + (sett.url !== '' ? sett.url : self.options.url) + '&media=' + sett.media + '&description=' + sett.description + '" class="pin-it-button" count-layout="' + sett.layout + '">Pin It</a></div>');
 
         (function() {
           var li = document.createElement('script');
@@ -337,25 +337,25 @@
         window.open("https://plus.google.com/share?hl=" + opt.buttons.googlePlus.lang + "&url=" + encodeURIComponent((opt.buttons.googlePlus.url !== '' ? opt.buttons.googlePlus.url : opt.url)), "", "toolbar=0, status=0, width=900, height=500");
       },
       facebook: function(opt) {
-        window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent((opt.buttons.facebook.url !== '' ? opt.buttons.facebook.url : opt.url)) + "&t=" + opt.text + "", "", "toolbar=0, status=0, width=900, height=500");
+        window.open("http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent((opt.buttons.facebook.url !== '' ? opt.buttons.facebook.url : opt.url)) + "&t=" + opt.text + "", "", "toolbar=0, status=0, width=900, height=500");
       },
       twitter: function(opt) {
         window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(opt.text) + "&url=" + encodeURIComponent((opt.buttons.twitter.url !== '' ? opt.buttons.twitter.url : opt.url)) + (opt.buttons.twitter.via !== '' ? '&via=' + opt.buttons.twitter.via : ''), "", "toolbar=0, status=0, width=650, height=360");
       },
       digg: function(opt) {
-        window.open("https://digg.com/tools/diggthis/submit?url=" + encodeURIComponent((opt.buttons.digg.url !== '' ? opt.buttons.digg.url : opt.url)) + "&title=" + opt.text + "&related=true&style=true", "", "toolbar=0, status=0, width=650, height=360");
+        window.open("http://digg.com/tools/diggthis/submit?url=" + encodeURIComponent((opt.buttons.digg.url !== '' ? opt.buttons.digg.url : opt.url)) + "&title=" + opt.text + "&related=true&style=true", "", "toolbar=0, status=0, width=650, height=360");
       },
       delicious: function(opt) {
-        window.open('https://www.delicious.com/save?v=5&noui&jump=close&url=' + encodeURIComponent((opt.buttons.delicious.url !== '' ? opt.buttons.delicious.url : opt.url)) + '&title=' + opt.text, 'delicious', 'toolbar=no,width=550,height=550');
+        window.open('http://www.delicious.com/save?v=5&noui&jump=close&url=' + encodeURIComponent((opt.buttons.delicious.url !== '' ? opt.buttons.delicious.url : opt.url)) + '&title=' + opt.text, 'delicious', 'toolbar=no,width=550,height=550');
       },
       stumbleupon: function(opt) {
-        window.open('https://www.stumbleupon.com/badge/?url=' + encodeURIComponent((opt.buttons.stumbleupon.url !== '' ? opt.buttons.stumbleupon.url : opt.url)), 'stumbleupon', 'toolbar=no,width=550,height=550');
+        window.open('http://www.stumbleupon.com/badge/?url=' + encodeURIComponent((opt.buttons.stumbleupon.url !== '' ? opt.buttons.stumbleupon.url : opt.url)), 'stumbleupon', 'toolbar=no,width=550,height=550');
       },
       linkedin: function(opt) {
         window.open('https://www.linkedin.com/cws/share?url=' + encodeURIComponent((opt.buttons.linkedin.url !== '' ? opt.buttons.linkedin.url : opt.url)) + '&token=&isFramed=true', 'linkedin', 'toolbar=no,width=550,height=550');
       },
       pinterest: function(opt) {
-        window.open('https://pinterest.com/pin/create/button/?url=' + encodeURIComponent((opt.buttons.pinterest.url !== '' ? opt.buttons.pinterest.url : opt.url)) + '&media=' + encodeURIComponent(opt.buttons.pinterest.media) + '&description=' + opt.buttons.pinterest.description, 'pinterest', 'toolbar=no,width=700,height=300');
+        window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent((opt.buttons.pinterest.url !== '' ? opt.buttons.pinterest.url : opt.url)) + '&media=' + encodeURIComponent(opt.buttons.pinterest.media) + '&description=' + opt.buttons.pinterest.description, 'pinterest', 'toolbar=no,width=700,height=300');
       }
     };
 

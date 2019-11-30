@@ -47,79 +47,78 @@
 </style>
 <body class="blog-post sidebar-collapse" ng-app="sontn1309">
     <div ng-controller="ctrl1">
-            <nav class="navbar navbar-color-on-scroll navbar-transparent  fixed-top  navbar-expand-lg "
-            color-on-scroll="100" id="sectionsNav">
-            <div class="container">
-                <div class="navbar-translate">
-                    <a class="navbar-brand" href="">
-                        Trần Ngọc Sơn - PS08499</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+        <nav class="navbar navbar-color-on-scroll navbar-transparent  fixed-top  navbar-expand-lg " color-on-scroll="100"
+        id="sectionsNav">
+        <div class="container">
+          <div class="navbar-translate">
+            <a class="navbar-brand" href="">
+              Trần Ngọc Sơn - PS08499</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="navbar-toggler-icon"></span>
+              <span class="navbar-toggler-icon"></span>
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a href="../index.html" class=" nav-link">
+                  <i class="material-icons">account_balance</i> Trang chủ
+                </a>
+              </li>
+              <li class="dropdown nav-item">
+                <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                  <i class="material-icons">apps</i> Danh mục môn học
+                </a>
+  
+                <div class="dropdown-menu dropdown-with-icons scrollable-menu ">
+                  <div>
+                    <a href="../pages/subjects.html" class="dropdown-item">
+                      <i class="material-icons">layers</i><span>Tất cả môn học</span>
+                    </a>
+                  </div>
+                  <div ng-repeat="show in Subjects">
+                    <a href="" class="dropdown-item">
+                      <i class="material-icons">layers</i><span>{{show.Name}}</span>
+                    </a>
+                  </div>
                 </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="../index.html" class=" nav-link" >
-                                <i class="material-icons">account_balance</i> Trang chủ
-                            </a>
-                        </li>
-                        <li class="dropdown nav-item">
-                            <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                <i class="material-icons">apps</i> Danh mục môn học
-                            </a>
-
-                            <div class="dropdown-menu dropdown-with-icons scrollable-menu ">
-                                <div>
-                                    <a href="../pages/subjects.html" class="dropdown-item">
-                                        <i class="material-icons">layers</i><span>Tất cả môn học</span>
-                                    </a>
-                                </div>
-                                <div ng-repeat="show in Subjects">
-                                    <a href="" class="dropdown-item">
-                                        <i class="material-icons">layers</i><span>{{show.Name}}</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="dropdown nav-item">
-                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                <i class="material-icons">view_day</i> Tài khoản
-                            </a>
-                            <div class="dropdown-menu dropdown-with-icons">
-                                <a href="../pages/login-page.html" class="dropdown-item">
-                                    <i class="material-icons">dns</i> Đăng nhập
-                                </a>
-
-                            </div>
-                        </li>
-                        <li class="dropdown nav-item">
-                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                <i class="material-icons">view_carousel</i> Trợ giúp
-                            </a>
-                            <div class="dropdown-menu dropdown-with-icons">
-                                <a href="#" class="dropdown-item">
-                                    <i class="material-icons">account_balance</i>Liên hệ
-                                </a>
-                                <a href="#" class="dropdown-item">
-                                    <i class="material-icons">account_balance</i>Góp ý
-                                </a>
-
-                            </div>
-                        </li>
-                        <li class="button-container nav-item iframe-extern">
-                            <a href="../pages/login-page.html" class="btn  btn-rose btn-block">
-                                <i class="material-icons">account_circle</i> Đăng nhập
-                            </a>
-                        </li>
-                    </ul>
+              </li>
+              <li class="dropdown nav-item">
+                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                  <i class="material-icons">view_day</i> Tài khoản
+                </a>
+                <div class="dropdown-menu dropdown-with-icons">
+                  <a href="../pages/login-page.html" class="dropdown-item">
+                    <i class="material-icons">dns</i> Đăng nhập
+                  </a>
+                  <a href="../pages/login-page.html" class="dropdown-item">
+                    <i class="material-icons">dns</i> Thông tin tài khoản
+                  </a>
+  
                 </div>
-            </div>
-        </nav>
+              </li>
+              <li class="dropdown nav-item">
+                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                  <i class="material-icons">view_carousel</i> Trợ giúp
+                </a>
+                <div class="dropdown-menu dropdown-with-icons">
+                  <a href="../pages/contact.html" class="dropdown-item">
+                    <i class="material-icons">account_balance</i>Liên hệ - Góp ý
+                  </a>
+                </div>
+              </li>
+              <li class="button-container nav-item iframe-extern">
+                <a href="../pages/login-page.html" class="btn  btn-rose btn-block">
+                  <i class="material-icons">account_circle</i> Đăng nhập
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
         <div class="page-header header-filter" data-parallax="true"
             style="background-image: url('../assets/logos/banner.jpg');">
             <div class="container">
