@@ -114,10 +114,23 @@
                   </a>
                 </div>
               </li>
-              <li class="button-container nav-item iframe-extern">
-                <a href="../pages/login-page.html" class="btn  btn-rose btn-block">
-                  <i class="material-icons">account_circle</i> Đăng nhập
-                </a>
+              <li ng-show="!Login()" class="button-container nav-item iframe-extern">
+                  <a href="../pages/login-page.html" class="btn  btn-rose btn-block">
+                      <i class="material-icons">account_circle</i> Đăng nhập
+                  </a>
+              </li>
+              <li ng-show="Login()" class="dropdown nav-item iframe-extern">
+                  <a href="" class="btn  btn-rose btn-block" data-toggle="dropdown">
+                      <i class="material-icons">account_circle</i> <span id="username"></span>
+                  </a>
+                  <div class="dropdown-menu dropdown-with-icons">
+                      <a href="../contact.html" class="dropdown-item">
+                          <i class="material-icons">account_circle</i>Thông tin tài khoản
+                      </a>
+                      <a href="../index.html" ng-click="Logout()" class="dropdown-item">
+                          <i class="material-icons">account_balance</i>Đăng xuất
+                      </a>
+                  </div>
               </li>
             </ul>
           </div>
@@ -227,10 +240,27 @@
         </footer>
     </div>
     <script>
+      var x;
         var app = angular.module("sontn1309", []);
         app.controller("ctrl1", function ($scope, $http) {
             $scope.Subjects = [];
+            $scope.Logout=function()
+            {
+                sessionStorage.clear();
+            }
+            $scope.Login = function () {
+                x = sessionStorage.getItem('user');
+                
+                if(x!=null)
+                {
+                    document.getElementById("username").innerHTML = x;
+                    return true;
+                }else
+                {
+                    return false;
+                }
 
+            }
             $http.get("../assets/db/Subjects.JSON").then(function (response) {
                 $scope.Subjects = response.data.x;
             }, function (response) {

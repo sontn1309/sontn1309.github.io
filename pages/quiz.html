@@ -17,188 +17,251 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>
-        Front-end WEB207
-    </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-        name='viewport' />
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <!-- CSS Files -->
-    <link href="../assets/css/material-kit.css?v=2.1.1" rel="stylesheet" />
-    <script src="../assets/js/jquery-3.4.1.min.js"></script>
-    <!-- Angular -->
-    <script src="../assets/js/angular.min.js"></script>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Front-end WEB207
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+    name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="../assets/css/material-kit.css?v=2.1.1" rel="stylesheet" />
+  <script src="../assets/js/jquery-3.4.1.min.js"></script>
+  <!-- Angular -->
+  <script src="../assets/js/angular.min.js"></script>
 
 </head>
 <style>
-    .scrollable-menu {
-        height: auto;
-        max-height: 500px;
-        overflow-x: hidden;
-    }
+  .scrollable-menu {
+    height: auto;
+    max-height: 500px;
+    overflow-x: hidden;
+  }
 </style>
 
 <body class="blog-post sidebar-collapse" ng-app="sontn1309">
-    <div ng-controller="ctrl1">
-        <nav class="navbar navbar-color-on-scroll navbar-transparent  fixed-top  navbar-expand-lg " color-on-scroll="100"
-        id="sectionsNav">
-        <div class="container">
-          <div class="navbar-translate">
-            <a class="navbar-brand" href="">
-              Trần Ngọc Sơn - PS08499</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
-              aria-label="Toggle navigation">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="navbar-toggler-icon"></span>
-              <span class="navbar-toggler-icon"></span>
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a href="../index.html" class=" nav-link">
-                  <i class="material-icons">account_balance</i> Trang chủ
-                </a>
-              </li>
-              <li class="dropdown nav-item">
-                <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <i class="material-icons">apps</i> Danh mục môn học
-                </a>
-  
-                <div class="dropdown-menu dropdown-with-icons scrollable-menu ">
-                  <div>
-                    <a href="../pages/subjects.html" class="dropdown-item">
-                      <i class="material-icons">layers</i><span>Tất cả môn học</span>
-                    </a>
-                  </div>
-                  <div ng-repeat="show in Subjects">
-                    <a href="" class="dropdown-item">
-                      <i class="material-icons">layers</i><span>{{show.Name}}</span>
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li class="dropdown nav-item">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <i class="material-icons">view_day</i> Tài khoản
-                </a>
-                <div class="dropdown-menu dropdown-with-icons">
-                  <a href="../pages/login-page.html" class="dropdown-item">
-                    <i class="material-icons">dns</i> Đăng nhập
-                  </a>
-                  <a href="../pages/signup-page.html" class="dropdown-item">
-                    <i class="material-icons">dns</i> Đăng kí
-                </a>
-                  <a href="../pages/info-user.html" class="dropdown-item">
-                    <i class="material-icons">dns</i> Thông tin tài khoản
-                  </a>
-  
-                </div>
-              </li>
-              <li class="dropdown nav-item">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <i class="material-icons">view_carousel</i> Trợ giúp
-                </a>
-                <div class="dropdown-menu dropdown-with-icons">
-                  <a href="../pages/contact.html" class="dropdown-item">
-                    <i class="material-icons">account_balance</i>Liên hệ - Góp ý
+  <div ng-controller="ctrl1">
+    <nav class="navbar navbar-color-on-scroll navbar-transparent  fixed-top  navbar-expand-lg " color-on-scroll="100"
+      id="sectionsNav">
+      <div class="container">
+        <div class="navbar-translate">
+          <a class="navbar-brand" href="">
+            Trần Ngọc Sơn - PS08499</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="../index.html" class=" nav-link">
+                <i class="material-icons">account_balance</i> Trang chủ
+              </a>
+            </li>
+            <li class="dropdown nav-item">
+              <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <i class="material-icons">apps</i> Danh mục môn học
+              </a>
+
+              <div class="dropdown-menu dropdown-with-icons scrollable-menu ">
+                <div>
+                  <a href="../pages/subjects.html" class="dropdown-item">
+                    <i class="material-icons">layers</i><span>Tất cả môn học</span>
                   </a>
                 </div>
-              </li>
-              <li class="button-container nav-item iframe-extern">
+                <div ng-repeat="show in Subjects">
+                  <a href="" class="dropdown-item">
+                    <i class="material-icons">layers</i><span>{{show.Name}}</span>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="dropdown nav-item">
+              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <i class="material-icons">view_day</i> Tài khoản
+              </a>
+              <div class="dropdown-menu dropdown-with-icons">
+                <a href="../pages/login-page.html" class="dropdown-item">
+                  <i class="material-icons">dns</i> Đăng nhập
+                </a>
+                <a href="../pages/signup-page.html" class="dropdown-item">
+                  <i class="material-icons">dns</i> Đăng kí
+                </a>
+                <a href="../pages/info-user.html" class="dropdown-item">
+                  <i class="material-icons">dns</i> Thông tin tài khoản
+                </a>
+              </div>
+            </li>
+            <li class="dropdown nav-item">
+              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <i class="material-icons">view_carousel</i> Trợ giúp
+              </a>
+              <div class="dropdown-menu dropdown-with-icons">
+                <a href="../pages/contact.html" class="dropdown-item">
+                  <i class="material-icons">account_balance</i>Liên hệ - Góp ý
+                </a>
+              </div>
+            </li>
+            <li ng-show="!Login()" class="button-container nav-item iframe-extern">
                 <a href="../pages/login-page.html" class="btn  btn-rose btn-block">
-                  <i class="material-icons">account_circle</i> Đăng nhập
+                    <i class="material-icons">account_circle</i> Đăng nhập
                 </a>
-              </li>
-            </ul>
+            </li>
+            <li ng-show="Login()" class="dropdown nav-item iframe-extern">
+                <a href="" class="btn  btn-rose btn-block" data-toggle="dropdown">
+                    <i class="material-icons">account_circle</i> <span id="username"></span>
+                </a>
+                <div class="dropdown-menu dropdown-with-icons">
+                    <a href="../contact.html" class="dropdown-item">
+                        <i class="material-icons">account_circle</i>Thông tin tài khoản
+                    </a>
+                    <a href="../index.html" ng-click="Logout()" class="dropdown-item">
+                        <i class="material-icons">account_balance</i>Đăng xuất
+                    </a>
+                </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="page-header header-filter" data-parallax="true"
+      style="background-image: url('../assets/logos/banner.jpg');">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto text-center">
+            <h1 class="title">Online Traning</h1>
+            <h4>Thực hiện các bài Quiz online của Trường FPT Polytechnic</h4>
+            <br>
+
           </div>
         </div>
-      </nav>
-        <div class="page-header header-filter" data-parallax="true"
-            style="background-image: url('../assets/logos/banner.jpg');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 ml-auto mr-auto text-center">
-                        <h1 class="title">Online Traning</h1>
-                        <h4>Thực hiện các bài Quiz online của Trường FPT Polytechnic</h4>
-                        <br>
+      </div>
+    </div>
+    <div class="main main-raised">
+      <div class="container">
+        <div class="section section-text">
+          <div class="row">
+            <div class="card card-login card-hidden">
+              <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">Vị trí đặt câu hỏi</h4>
+              </div>
+              <div class="card-body ">
 
-                    </div>
+                <div class="form-check mb-4">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                      value="option1"> Đáp án câu 1
+                    <span class="circle">
+                      <span class="check"></span>
+                    </span>
+                  </label>
                 </div>
-            </div>
-        </div>
-        <div class="main main-raised">
-            <div class="container">
-                <div class="section section-text">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h2 class="title text-center">Thực Hành Làm Quiz</h2>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-4" ng-repeat="show in Subjects">
-                                    <div class="card card-blog">
-                                        <div class="card-header card-header-image">
-                                            <a href="#">
-                                                <img class="img img-raised" src="../assets/logos/{{show.Logo}}">
-                                            </a>
-                                        </div>
-                                        <div class="card-body">
-                                            <h4 class="card-title">
-                                                <a href="#">{{show.Name}}</a>
-                                            </h4>
-                                            <p class="card-description">
-                                                Nội dung bài làm quiz các môn hoc
-                                                <a href="#"> Làm bài </a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="form-check mb-4">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                      value="option2" checked="">Đáp án câu 2
+                    <span class="circle">
+                      <span class="check"></span>
+                    </span>
+                  </label>
                 </div>
-                <!-- end media-post -->
+                <div class="form-check mb-4">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                      value="option2" checked=""> Đáp án câu 3
+                    <span class="circle">
+                      <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
+                <div class="form-check mb-4">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                      value="option2" checked=""> Đáp án câu 4
+                    <span class="circle">
+                      <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div class="card-footer bg-rose">
+                  <ul class="pagination pagination-info">
+                      <li class="page-item">
+                        <a href="" class="btn btn-primary"> prev<div class="ripple-container"></div></a>
+                      </li>
+                     
+                      <li class="page-item">
+                        <a href="" class="btn btn-primary">next </a>
+                      </li>
+                    </ul>
+              </div>
             </div>
+          </div>
+          <div >
+            <a href="../pages/info-user.html" class="btn btn-success  btn-lg {{a}}" disabled>Kết thúc kiểm tra</a>
+          </div>
+          <!-- end media-post -->
         </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
+      </div>
+      <div class="section">
+        <div class="container">
+          <div class="row">
 
-                </div>
-            </div>
+          </div>
         </div>
-        <footer class="footer">
-            <div class="container">
+      </div>
+      <footer class="footer">
+        <div class="container">
 
-                <div class="copyright float-right">
-                    &copy;
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>, Update <i class="material-icons">favorite</i> by
-                    <a href="https://www.creative-tim.com" target="_blank">Ngọc Sơn</a>
-                </div>
-            </div>
-        </footer>
+          <div class="copyright float-right">
+            &copy;
+            <script>
+              document.write(new Date().getFullYear())
+            </script>, Update <i class="material-icons">favorite</i> by
+            <a href="https://www.creative-tim.com" target="_blank">Ngọc Sơn</a>
+          </div>
+        </div>
+      </footer>
     </div>
     <script>
-        var app = angular.module("sontn1309", []);
-        app.controller("ctrl1", function ($scope, $http) {
-            $scope.Subjects = [];
+      var app = angular.module("sontn1309", []);
+      app.controller("ctrl1", function ($scope, $http) {
+        $scope.Subjects = [];
+        $scope.Logout=function()
+            {
+                sessionStorage.clear();
+            }
+            $scope.Login = function () {
+                x = sessionStorage.getItem('user');
+                
+                if(x!=null)
+                {
+                    document.getElementById("username").innerHTML = x;
+                    return true;
+                }else
+                {
+                    return false;
+                }
 
-            $http.get("../assets/db/Subjects.JSON").then(function (response) {
-                $scope.Subjects = response.data.x;
-            }, function (response) {
-                alert("Erroor");
-            });
+            }
+        $scope.a ="";
+        $http.get("../assets/db/Subjects.JSON").then(function (response) {
+          $scope.Subjects = response.data.x;
+
+        }, function (response) {
+          alert("Erroor");
         });
+      });
     </script>
     <!--   Core JS Files   -->
 

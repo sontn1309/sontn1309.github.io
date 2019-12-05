@@ -144,7 +144,8 @@
                   </div>
                 </div>
                 <div class="card-body ">
-
+                  <div class="text-center" ng-show="showMsg"> <p  style="color: red;"> Sai tên tài khoản hoạc mật khẩu</p></div>
+                 
                   <span class="bmd-form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
@@ -152,7 +153,7 @@
                           <i class="material-icons">face</i>
                         </span>
                       </div>
-                      <input type="text" class="form-control" placeholder="First Name...">
+                      <input type="text" class="form-control" id="username" placeholder="User name...">
                     </div>
                   </span>
 
@@ -163,12 +164,12 @@
                           <i class="material-icons">lock_outline</i>
                         </span>
                       </div>
-                      <input type="password" class="form-control" placeholder="Password...">
+                      <input type="password" class="form-control" id="password" placeholder="Password...">
                     </div>
                   </span>
                 </div>
                 <div class="card-footer justify-content-center">
-                  <a href="#pablo" class="btn btn-rose btn-link  btn-lg">Đăng Nhập</a>
+                  <a href="#pablo" ng-click="xmn()" class="btn btn-rose btn-link  btn-lg">Đăng Nhập</a>
                 </div>
               </div>
             </form>
@@ -190,14 +191,37 @@
     </div>
   </div>
   <script>
+   
     var app = angular.module("sontn1309", []);
     app.controller("ctrl1", function ($scope, $http) {
-      $scope.Subjects = [];
+      $scope.Subjects = [];     
+      $scope.account=[];
+      $scope.checkLogin=false;
+      $scope.showMsg=false;
+      $http.get("../assets/db/Students.JSON").then(function (response) {
+        $scope.account = response.data.x;
+       
+        $scope.xmn=function ()
+      {
+        $scope.user=document.getElementById("username").value;
+        $scope.pass=document.getElementById("password").value;
+        angular.forEach( $scope.account, function(item) {
+            if ($scope.user == item.username&& $scope.pass==item.password) {
+              sessionStorage.setItem('user', $scope.user);
+              $scope.checkLogin=true;
+              window.location.assign("../index.html");     
+            } });
+            $scope.showMsg=true;
+            return  $scope.checkLogin;
+      }
 
+      }, function (response) {
+        alert("Lỗi kết nối tới máy chủ");
+      });
       $http.get("../assets/db/Subjects.JSON").then(function (response) {
         $scope.Subjects = response.data.x;
       }, function (response) {
-        alert("Erroor");
+        alert("Lỗi kết nối tới máy chủ");
       });
     });
   </script>

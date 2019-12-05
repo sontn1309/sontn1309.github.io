@@ -1,18 +1,3 @@
-<!--
- =========================================================
- Material Kit PRO - v2.1.1
- =========================================================
-
- Product Page: https://www.creative-tim.com/product/material-kit-pro
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
- Coded by Creative Tim
-
- =========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +7,8 @@
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-            Front-end WEB207
-        </title>
+        Front-end WEB207
+    </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />
     <!--     Fonts and icons     -->
@@ -32,24 +17,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
     <link href="assets/css/material-kit.css?v=2.1.1" rel="stylesheet" type="text/css" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="assets/demo/demo.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/demo/vertical-nav.css" rel="stylesheet" type="text/css"/>
     <!--   Core JS Files   -->
     <script src="assets/js/jquery-3.4.1.min.js"></script>
     <!-- Angular -->
     <script src="assets/js/angular.min.js"></script>
 </head>
 <style>
-        .scrollable-menu {
-            height: auto;
-            max-height: 500px;
-            overflow-x: hidden;
-        }
-    </style>
+    .scrollable-menu {
+        height: auto;
+        max-height: 500px;
+        overflow-x: hidden;
+    }
+</style>
+
 <body class="profile-page sidebar-collapse" ng-app="sontn1309">
     <div ng-controller="ctrl1">
-            <nav class="navbar navbar-color-on-scroll navbar-transparent  fixed-top  navbar-expand-lg "
+        <nav class="navbar navbar-color-on-scroll navbar-transparent  fixed-top  navbar-expand-lg "
             color-on-scroll="100" id="sectionsNav">
             <div class="container">
                 <div class="navbar-translate">
@@ -66,7 +49,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a href="index.html" class=" nav-link" >
+                            <a href="index.html" class=" nav-link">
                                 <i class="material-icons">account_balance</i> Trang chủ
                             </a>
                         </li>
@@ -101,7 +84,7 @@
                                 </a>
                                 <a href="pages/info-user.html" class="dropdown-item">
                                     <i class="material-icons">dns</i> Thông tin tài khoản
-                                  </a>
+                                </a>
                             </div>
                         </li>
                         <li class="dropdown nav-item">
@@ -114,10 +97,23 @@
                                 </a>
                             </div>
                         </li>
-                        <li class="button-container nav-item iframe-extern">
+                        <li ng-show="!Login()" class="button-container nav-item iframe-extern">
                             <a href="pages/login-page.html" class="btn  btn-rose btn-block">
                                 <i class="material-icons">account_circle</i> Đăng nhập
                             </a>
+                        </li>
+                        <li ng-show="Login()" class="dropdown nav-item iframe-extern">
+                            <a href="" class="btn  btn-rose btn-block" data-toggle="dropdown">
+                                <i class="material-icons">account_circle</i> <span id="username"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-with-icons">
+                                <a href="pages/contact.html" class="dropdown-item">
+                                    <i class="material-icons">account_circle</i>Thông tin tài khoản
+                                </a>
+                                <a href="index.html" ng-click="Logout()" class="dropdown-item">
+                                    <i class="material-icons">account_balance</i>Đăng xuất
+                                </a>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -138,11 +134,13 @@
                                 <div class="name">
                                     <h3 class="title">Trần Ngọc Sơn</h3>
                                     <h6>Developer</h6>
-                                    <a href="https://www.facebook.com/ngocson454" target="_blank" class="btn btn-just-icon btn-link btn-dribbble"><i
+                                    <a href="https://www.facebook.com/ngocson454" target="_blank"
+                                        class="btn btn-just-icon btn-link btn-dribbble"><i
                                             class="fa fa-facebook-square btn-facebook btn-link"></i></a>
-                                    <a href="https://twitter.com/sontn1309" target="_blank" class="btn btn-just-icon btn-link btn-twitter"><i
-                                            class="fa fa-twitter"></i></a>
-                                    <a href="https://www.instagram.com/sontn1309/" target="_blank" class="btn btn-just-icon btn-link btn-pinterest"><i
+                                    <a href="https://twitter.com/sontn1309" target="_blank"
+                                        class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
+                                    <a href="https://www.instagram.com/sontn1309/" target="_blank"
+                                        class="btn btn-just-icon btn-link btn-pinterest"><i
                                             class="fa fa-instagram"></i></a>
                                 </div>
                             </div>
@@ -177,40 +175,40 @@
                     <div class="tab-content tab-space">
                         <div class="tab-pane active text-center gallery" id="studio">
                             <div class="row">
-                               
+
                             </div>
                         </div>
                         <div class="tab-pane text-center gallery" id="works">
-                          
-                              
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h6>About</h6>
-                                        <p>
-                                          Java Developer 
-                                        </p>
-                                
-                                       
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h6>Skill</h6>
-                                        <a href="#" class="badge badge-dark badge-pill">html5</a>
-                                        <a href="#" class="badge badge-dark badge-pill">react</a>
-                                        <a href="#" class="badge badge-dark badge-pill">codeply</a>
-                                        <a href="#" class="badge badge-dark badge-pill">angularjs</a>
-                                        <a href="#" class="badge badge-dark badge-pill">jquery</a>
-                                        <a href="#" class="badge badge-dark badge-pill">bootstrap</a>                                   
-                                        <hr>
-                                        
-                                    </div>
-                                    
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6>About</h6>
+                                    <p>
+                                        Java Developer
+                                    </p>
+
+
                                 </div>
-                                <!--/row-->
-                           
+                                <div class="col-md-6">
+                                    <h6>Skill</h6>
+                                    <a href="#" class="badge badge-dark badge-pill">html5</a>
+                                    <a href="#" class="badge badge-dark badge-pill">react</a>
+                                    <a href="#" class="badge badge-dark badge-pill">codeply</a>
+                                    <a href="#" class="badge badge-dark badge-pill">angularjs</a>
+                                    <a href="#" class="badge badge-dark badge-pill">jquery</a>
+                                    <a href="#" class="badge badge-dark badge-pill">bootstrap</a>
+                                    <hr>
+
+                                </div>
+
+                            </div>
+                            <!--/row-->
+
                         </div>
                         <div class="tab-pane text-center gallery" id="favorite">
                             <div class="row">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -231,10 +229,29 @@
         </footer>
     </div>
     <script>
+       
+       
+        var x;
         var app = angular.module("sontn1309", []);
         app.controller("ctrl1", function ($scope, $http) {
             $scope.Subjects = [];
+            $scope.Logout=function()
+            {
+                sessionStorage.clear();
+            }
+            $scope.Login = function () {
+                x = sessionStorage.getItem('user');
+                
+                if(x!=null)
+                {
+                    document.getElementById("username").innerHTML = x;
+                    return true;
+                }else
+                {
+                    return false;
+                }
 
+            }
             $http.get("assets/db/Subjects.JSON").then(function (response) {
                 $scope.Subjects = response.data.x;
             }, function (response) {
@@ -242,7 +259,7 @@
             });
         });
     </script>
-    
+
     <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
     <script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
