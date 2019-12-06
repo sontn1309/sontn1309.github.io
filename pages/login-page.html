@@ -36,6 +36,7 @@
   <script src="../assets/js/jquery-3.4.1.min.js"></script>
   <!-- Angular -->
   <script src="../assets/js/angular.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 <style>
   .scrollable-menu {
@@ -96,7 +97,7 @@
                 </a>
                 <a href="../pages/signup-page.html" class="dropdown-item">
                   <i class="material-icons">dns</i> Đăng kí
-              </a>
+                </a>
                 <a href="../pages/info-user.html" class="dropdown-item">
                   <i class="material-icons">dns</i> Thông tin tài khoản
                 </a>
@@ -144,8 +145,10 @@
                   </div>
                 </div>
                 <div class="card-body ">
-                  <div class="text-center" ng-show="showMsg"> <p  style="color: red;"> Sai tên tài khoản hoạc mật khẩu</p></div>
-                 
+                  <div class="text-center" ng-show="showMsg">
+                    <p style="color: red;"> Sai tên tài khoản hoạc mật khẩu</p>
+                  </div>
+
                   <span class="bmd-form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
@@ -191,29 +194,34 @@
     </div>
   </div>
   <script>
-   
     var app = angular.module("sontn1309", []);
     app.controller("ctrl1", function ($scope, $http) {
-      $scope.Subjects = [];     
-      $scope.account=[];
-      $scope.checkLogin=false;
-      $scope.showMsg=false;
+      $scope.Subjects = [];
+      $scope.account = [];
+      $scope.checkLogin = false;
+      $scope.showMsg = false;
       $http.get("../assets/db/Students.JSON").then(function (response) {
         $scope.account = response.data.x;
-       
-        $scope.xmn=function ()
-      {
-        $scope.user=document.getElementById("username").value;
-        $scope.pass=document.getElementById("password").value;
-        angular.forEach( $scope.account, function(item) {
-            if ($scope.user == item.username&& $scope.pass==item.password) {
+
+        $scope.xmn = function () {
+          $scope.user = document.getElementById("username").value;
+          $scope.pass = document.getElementById("password").value;
+          angular.forEach($scope.account, function (item) {
+            if ($scope.user == item.username && $scope.pass == item.password) {
               sessionStorage.setItem('user', $scope.user);
-              $scope.checkLogin=true;
-              window.location.assign("../index.html");     
-            } });
-            $scope.showMsg=true;
-            return  $scope.checkLogin;
-      }
+              $scope.checkLogin = true;
+              Swal.fire(
+                'Success',
+                'Đăng nhập thành công!',
+                'success'
+              ).then(function () {
+                window.location.assign("../index.html");
+              });
+              
+            }
+          });
+          $scope.showMsg = !$scope.checkLogin;
+        }
 
       }, function (response) {
         alert("Lỗi kết nối tới máy chủ");

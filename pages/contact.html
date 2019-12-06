@@ -35,9 +35,12 @@
     <script src="../assets/js/jquery-3.4.1.min.js"></script>
     <!-- Angular -->
     <script src="../assets/js/angular.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 <style>
+    body {
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
     .scrollable-menu {
         height: auto;
         max-height: 500px;
@@ -124,7 +127,7 @@
                       <i class="material-icons">account_circle</i> <span id="username"></span>
                   </a>
                   <div class="dropdown-menu dropdown-with-icons">
-                      <a href="../contact.html" class="dropdown-item">
+                      <a href="../pages/info-user.html" class="dropdown-item">
                           <i class="material-icons">account_circle</i>Thông tin tài khoản
                       </a>
                       <a href="../index.html" ng-click="Logout()" class="dropdown-item">

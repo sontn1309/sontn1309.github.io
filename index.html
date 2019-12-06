@@ -21,6 +21,7 @@
     <script src="assets/js/jquery-3.4.1.min.js"></script>
     <!-- Angular -->
     <script src="assets/js/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 <style>
     .scrollable-menu {
@@ -107,7 +108,7 @@
                                 <i class="material-icons">account_circle</i> <span id="username"></span>
                             </a>
                             <div class="dropdown-menu dropdown-with-icons">
-                                <a href="pages/contact.html" class="dropdown-item">
+                                <a href="pages/info-user.html" class="dropdown-item">
                                     <i class="material-icons">account_circle</i>Thông tin tài khoản
                                 </a>
                                 <a href="index.html" ng-click="Logout()" class="dropdown-item">
@@ -230,7 +231,7 @@
     </div>
     <script>
        
-       
+    
         var x;
         var app = angular.module("sontn1309", []);
         app.controller("ctrl1", function ($scope, $http) {
