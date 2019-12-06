@@ -46,14 +46,14 @@
 </style>
 
 <body class="blog-post sidebar-collapse" ng-app="sontn1309">
-    <script>  
-        var sessionUser = sessionStorage.getItem('user');
-            if(sessionUser==null)
-            {       Swal.fire('Bạn cần phải đăng nhập trước').then(function(){
-                window.location.assign("../pages/login-page.html"); 
-            }
-                )
-            }</script>
+  <script>
+    var sessionUser = sessionStorage.getItem('user');
+    if (sessionUser == null) {
+      Swal.fire('Bạn cần phải đăng nhập trước').then(function () {
+        window.location.assign("../pages/login-page.html");
+      })
+    }
+  </script>
   <div ng-controller="ctrl1">
     <nav class="navbar navbar-color-on-scroll navbar-transparent  fixed-top  navbar-expand-lg " color-on-scroll="100"
       id="sectionsNav">
@@ -121,22 +121,22 @@
               </div>
             </li>
             <li ng-show="!Login()" class="button-container nav-item iframe-extern">
-                <a href="../pages/login-page.html" class="btn  btn-rose btn-block">
-                    <i class="material-icons">account_circle</i> Đăng nhập
-                </a>
+              <a href="../pages/login-page.html" class="btn  btn-rose btn-block">
+                <i class="material-icons">account_circle</i> Đăng nhập
+              </a>
             </li>
             <li ng-show="Login()" class="dropdown nav-item iframe-extern">
-                <a href="" class="btn  btn-rose btn-block" data-toggle="dropdown">
-                    <i class="material-icons">account_circle</i> <span id="username"></span>
+              <a href="" class="btn  btn-rose btn-block" data-toggle="dropdown">
+                <i class="material-icons">account_circle</i> <span id="username"></span>
+              </a>
+              <div class="dropdown-menu dropdown-with-icons">
+                <a href="../pages/info-user.html" class="dropdown-item">
+                  <i class="material-icons">account_circle</i>Thông tin tài khoản
                 </a>
-                <div class="dropdown-menu dropdown-with-icons">
-                    <a href="../pages/info-user.html" class="dropdown-item">
-                        <i class="material-icons">account_circle</i>Thông tin tài khoản
-                    </a>
-                    <a href="../index.html" ng-click="Logout()" class="dropdown-item">
-                        <i class="material-icons">account_balance</i>Đăng xuất
-                    </a>
-                </div>
+                <a href="../index.html" ng-click="Logout()" class="dropdown-item">
+                  <i class="material-icons">account_balance</i>Đăng xuất
+                </a>
+              </div>
             </li>
           </ul>
         </div>
@@ -155,67 +155,45 @@
         </div>
       </div>
     </div>
+
     <div class="main main-raised">
       <div class="container">
         <div class="section section-text">
-          <div class="row">
-            <div class="card card-login card-hidden">
-              <div class="card-header card-header-primary text-center">
-                <h4 class="card-title">Vị trí đặt câu hỏi</h4>
-              </div>
-              <div class="card-body ">
+          <h2 class="title text-center">Vị trí đặt tên môn học</h2>
+          <div  ng-repeat="quiz in quizs">
+            <div class="row" ng-show="showQuiz($index)">
+              <div class="card card-login card-hidden">
+                <div class="card-header card-header-primary text-center">
+                  <h4 class="card-title">{{quiz.Text}}</h4>
+                </div>
+                <div class="card-body ">
 
-                <div class="form-check mb-4">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                      value="option1"> Đáp án câu 1
-                    <span class="circle">
-                      <span class="check"></span>
-                    </span>
-                  </label>
+                  <div class="form-check mb-4" ng-repeat="answer in quiz.Answers">
+                    <label class="form-check-label text-dark">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                        value="option1"> {{answer.Text}}
+                      <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                    </label>
+                  </div>
+                 
                 </div>
-                <div class="form-check mb-4">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                      value="option2" checked="">Đáp án câu 2
-                    <span class="circle">
-                      <span class="check"></span>
-                    </span>
-                  </label>
-                </div>
-                <div class="form-check mb-4">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                      value="option2" checked=""> Đáp án câu 3
-                    <span class="circle">
-                      <span class="check"></span>
-                    </span>
-                  </label>
-                </div>
-                <div class="form-check mb-4">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                      value="option2" checked=""> Đáp án câu 4
-                    <span class="circle">
-                      <span class="check"></span>
-                    </span>
-                  </label>
-                </div>
-              </div>
-              <div class="card-footer bg-rose">
+                <div class="card-footer bg-rose">
                   <ul class="pagination pagination-info">
-                      <li class="page-item">
-                        <a href="" class="btn btn-primary"> prev<div class="ripple-container"></div></a>
-                      </li>
-                     
-                      <li class="page-item">
-                        <a href="" class="btn btn-primary">next </a>
-                      </li>
-                    </ul>
+                    <li class="page-item">
+                      <a href="" ng-click="prev()" class="btn btn-primary"> prev<div class="ripple-container"></div></a>
+                    </li>
+
+                    <li class="page-item">
+                      <a href="" ng-click="next()" class="btn btn-primary">next </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-          <div >
+          <div>
             <a href="../pages/info-user.html" class="btn btn-success  btn-lg {{a}}" disabled>Kết thúc kiểm tra</a>
           </div>
           <!-- end media-post -->
@@ -245,24 +223,51 @@
       var app = angular.module("sontn1309", []);
       app.controller("ctrl1", function ($scope, $http) {
         $scope.Subjects = [];
-        $scope.Logout=function()
-            {
-                sessionStorage.clear();
-            }
-            $scope.Login = function () {
-                x = sessionStorage.getItem('user');
-                
-                if(x!=null)
-                {
-                    document.getElementById("username").innerHTML = x;
-                    return true;
-                }else
-                {
-                    return false;
-                }
+        $scope.quizs = [];
+        $scope.numberQuiz = 0;
 
+        $http.get("../assets/db/Quizs/ADAV.js").then(function (response) {
+          $scope.quizs = response.data;
+          $scope.next = function () {
+            if ($scope.numberQuiz < ($scope.quizs.length - 1)) {
+              $scope.numberQuiz += 1;
+            } else {
+              $scope.numberQuiz = $scope.quizs.length - 1;
             }
-        $scope.a ="";
+          }
+          $scope.prev = function () {
+            if ($scope.numberQuiz >= 0) {
+              $scope.numberQuiz -= 1;
+            } else {
+              $scope.numberQuiz = 0;
+            }
+          }
+          $scope.showQuiz = function (numPage) {
+            if ($scope.numberQuiz == numPage) {
+              return true;
+            } else {
+              return false;
+            }
+
+          }
+        }, function (response) {
+          alert("Erroor");
+        });
+        $scope.Logout = function () {
+          sessionStorage.clear();
+        }
+        $scope.Login = function () {
+          x = sessionStorage.getItem('user');
+
+          if (x != null) {
+            document.getElementById("username").innerHTML = x;
+            return true;
+          } else {
+            return false;
+          }
+
+        }
+        $scope.a = "";
         $http.get("../assets/db/Subjects.JSON").then(function (response) {
           $scope.Subjects = response.data.x;
 
