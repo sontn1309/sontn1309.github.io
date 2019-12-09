@@ -2333,7 +2333,7 @@ select.form-control-lg:not([size]):not([multiple]),
 }
 
 .form-check-input:disabled~.form-check-label {
-  color: #6c757d;
+  color: #2f1f8a;
 }
 
 .form-check-label {
@@ -2515,7 +2515,7 @@ select.form-control-lg:not([size]):not([multiple]),
 
 .was-validated .form-check-input:invalid~.form-check-label,
 .form-check-input.is-invalid~.form-check-label {
-  color: #f44336;
+  color: #0a9715;
 }
 
 .was-validated .form-check-input:invalid~.invalid-feedback,
@@ -11909,7 +11909,7 @@ fieldset[disabled] .form-group.is-focused .form-check .form-check-label {
   height: 15px;
   width: 15px;
   border-radius: 100%;
-  background-color: #9c27b0;
+  background-color: #070707;
   -webkit-transform: scale3d(0, 0, 0);
   -moz-transform: scale3d(0, 0, 0);
   -o-transform: scale3d(0, 0, 0);

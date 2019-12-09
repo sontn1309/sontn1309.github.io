@@ -66,8 +66,8 @@
                     </a>
                   </div>
                   <div ng-repeat="show in Subjects">
-                    <a href="" class="dropdown-item">
-                      <i class="material-icons">layers</i><span>{{show.Name}}</span>
+                      <a href="../pages/quiz.html" class="dropdown-item">
+                        <i class="material-icons">layers</i><span>{{show.Name}}</span>
                     </a>
                   </div>
                 </div>
@@ -142,7 +142,7 @@
                             <h2 class="title text-center">Thực Hành Làm Quiz</h2>
                             <br>
                             <div class="row" >
-                                <div class="col-md-4" ng-repeat="show in Subjects">
+                                <div class="col-md-4" ng-repeat="show in Subjects" ng-click="Quiz()">
                                     <div class="card card-blog">
                                         <div class="card-header card-header-image">
                                             <a href="#">
@@ -187,35 +187,7 @@
             </div>
         </footer>
     </div>
-    <script>
-var x;
-        var app = angular.module("sontn1309", []);
-        app.controller("ctrl1", function ($scope, $http) {
-            $scope.Subjects = [];
-            $scope.Logout=function()
-            {
-                sessionStorage.clear();
-            }
-            $scope.Login = function () {
-                x = sessionStorage.getItem('user');
-                
-                if(x!=null)
-                {
-                    document.getElementById("username").innerHTML = x;
-                    return true;
-                }else
-                {
-                    return false;
-                }
-
-            }
-            $http.get("../assets/db/Subjects.JSON").then(function (response) {
-                $scope.Subjects = response.data.x;
-            }, function (response) {
-                alert("Erroor");
-            });
-        });
-    </script>
+    <script src="../assets/js/subjects.js"></script>
     <!--   Core JS Files   -->
    
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>

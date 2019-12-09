@@ -66,7 +66,7 @@
                                     </a>
                                 </div>
                                 <div ng-repeat="show in Subjects">
-                                    <a href="" class="dropdown-item">
+                                    <a href="pages/quiz.html" class="dropdown-item">
                                         <i class="material-icons">layers</i><span>{{show.Name}}</span>
                                     </a>
                                 </div>
@@ -229,38 +229,7 @@
             </div>
         </footer>
     </div>
-    <script>
-       
-    
-        var x;
-        var app = angular.module("sontn1309", []);
-        app.controller("ctrl1", function ($scope, $http) {
-            $scope.Subjects = [];
-            $scope.Logout=function()
-            {
-                sessionStorage.clear();
-            }
-            $scope.Login = function () {
-                x = sessionStorage.getItem('user');
-                
-                if(x!=null)
-                {
-                    document.getElementById("username").innerHTML = x;
-                    return true;
-                }else
-                {
-                    return false;
-                }
-
-            }
-            $http.get("assets/db/Subjects.JSON").then(function (response) {
-                $scope.Subjects = response.data.x;
-            }, function (response) {
-                alert("Erroor");
-            });
-        });
-    </script>
-
+    <script src="assets/js/index.js"></script>
     <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
     <script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>

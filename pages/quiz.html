@@ -36,6 +36,7 @@
   <!-- Angular -->
   <script src="../assets/js/angular.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script src="https://kit.fontawesome.com/d8191d7536.js" crossorigin="anonymous"></script>
 </head>
 <style>
   .scrollable-menu {
@@ -43,9 +44,21 @@
     max-height: 500px;
     overflow-x: hidden;
   }
+
+  .sticky {
+    position: fixed;
+    top: 80px;
+    right: 25px;
+  }
+
+  .aside-default {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+  }
 </style>
 
-<body class="blog-post sidebar-collapse" ng-app="sontn1309">
+<body class="profile-page sidebar-collapse" ng-app="sontn1309">
   <script>
     var sessionUser = sessionStorage.getItem('user');
     if (sessionUser == null) {
@@ -54,7 +67,7 @@
       })
     }
   </script>
-  <div ng-controller="ctrl1">
+  <div ng-controller="ctrl1" ng-init="init()">
     <nav class="navbar navbar-color-on-scroll navbar-transparent  fixed-top  navbar-expand-lg " color-on-scroll="100"
       id="sectionsNav">
       <div class="container">
@@ -88,8 +101,8 @@
                   </a>
                 </div>
                 <div ng-repeat="show in Subjects">
-                  <a href="" class="dropdown-item">
-                    <i class="material-icons">layers</i><span>{{show.Name}}</span>
+                    <a href="../pages/quiz.html" class="dropdown-item">
+                      <i class="material-icons">layers</i><span>{{show.Name}}</span>
                   </a>
                 </div>
               </div>
@@ -155,48 +168,87 @@
         </div>
       </div>
     </div>
-
-    <div class="main main-raised">
-      <div class="container">
-        <div class="section section-text">
-          <h2 class="title text-center">Vị trí đặt tên môn học</h2>
-          <div  ng-repeat="quiz in quizs">
-            <div class="row" ng-show="showQuiz($index)">
-              <div class="card card-login card-hidden">
-                <div class="card-header card-header-primary text-center">
-                  <h4 class="card-title">{{quiz.Text}}</h4>
-                </div>
-                <div class="card-body ">
-
-                  <div class="form-check mb-4" ng-repeat="answer in quiz.Answers">
-                    <label class="form-check-label text-dark">
-                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                        value="option1"> {{answer.Text}}
-                      <span class="circle">
-                        <span class="check"></span>
-                      </span>
-                    </label>
+    <div class="main" style="position: relative;" id="main">
+      <div class="container" >
+        
+        <div class="row">
+           <!-- open nav -->
+        <div class="col-3  float-right" id="aside">
+            <div class="col-md-12">
+              <ul class="nav nav-pills nav-pills-icons flex-column">
+                <li class="nav-item">
+                  <a class="nav-link text-danger rounded-pill border border-danger" href="" ng-click="setViewMode()">
+                    <i class="material-icons">dashboard</i>
+                    <strong>
+                      <p ng-bind="view"></p>
+                    </strong>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-danger rounded-pill border border-danger" href="" ng-click="getAmount()">
+                    <i class="material-icons">dashboard</i>
+                    <strong>
+                      <p> Kết thúc bài làm</p>
+                    </strong>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-danger rounded-pill border border-danger" href="" ng-click="resetTime()">
+                    <i class="material-icons">dashboard</i>
+                    <strong>
+                      <p>Làm lại</p>
+                    </strong>
+                  </a>
+                </li>
+                <li class="nav-item ">
+                  <div class="nav-link text-danger rounded-pill border border-danger">
+                    <h2 style="font-weight: 800;">{{minutesTimerCount}} phút {{secondsTimerCount}}</h2>
+                    </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- end nav -->
+          <div class="section section-text col-9">
+            <!-- Show quiz -->
+            <div  ng-repeat="quiz in quizs|limitTo:10:0">
+              <div class="row" ng-show="showQuiz($index)">
+                <div class="card card-login card-hidden">
+                  <div class="card-header bg-dark text-center">
+                    <h4 class="card-title m-2" value="{{quiz.Id}}">Câu {{$index+1}} / 10 . {{quiz.Text}}</h4>
                   </div>
-                 
-                </div>
-                <div class="card-footer bg-rose">
-                  <ul class="pagination pagination-info">
-                    <li class="page-item">
-                      <a href="" ng-click="prev()" class="btn btn-primary"> prev<div class="ripple-container"></div></a>
-                    </li>
+                  <div class="card-body">
+                    <div class="form-check mb-4" ng-repeat="answer in quiz.Answers">
+                      <label class="form-check-label text-dark" >
+                          
+                        <input class="form-check-input" type="radio" name="{{quiz.Id}}"
+                          value="{{answer.Id}}" ng-model="quiz.useranser" ng-disabled="disabledInput"><strong>{{answer.Text}}  &nbsp; &nbsp; &nbsp;  <i id="{{answer.Id}}"></i>  </strong>   
+                          <span class="circle">
+                            <span class="check"></span>
+                            
+                          </span>
+                         
 
-                    <li class="page-item">
-                      <a href="" ng-click="next()" class="btn btn-primary">next </a>
-                    </li>
-                  </ul>
+                        </label>
+                       
+                    </div>
+                  </div>
+                  <div class="card-footer bg-rose" ng-hide="viewMode">
+                    <ul class="pagination">
+                      <li class="page-item">
+                        <button ng-click="prev()" class="btn btn-social btn-fill btn-tumblr" ng-disabled="disabledprev"> prev</a>
+                      </li>
+
+                      <li class="page-item">
+                        <button href="" ng-click="next()" class="btn btn-social btn-fill btn-tumblr" ng-disabled="disablednext"> next </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
+            <!-- end media-post -->
           </div>
-          <div>
-            <a href="../pages/info-user.html" class="btn btn-success  btn-lg {{a}}" disabled>Kết thúc kiểm tra</a>
-          </div>
-          <!-- end media-post -->
         </div>
       </div>
       <div class="section">
@@ -220,62 +272,26 @@
       </footer>
     </div>
     <script>
-      var app = angular.module("sontn1309", []);
-      app.controller("ctrl1", function ($scope, $http) {
-        $scope.Subjects = [];
-        $scope.quizs = [];
-        $scope.numberQuiz = 0;
-
-        $http.get("../assets/db/Quizs/ADAV.js").then(function (response) {
-          $scope.quizs = response.data;
-          $scope.next = function () {
-            if ($scope.numberQuiz < ($scope.quizs.length - 1)) {
-              $scope.numberQuiz += 1;
-            } else {
-              $scope.numberQuiz = $scope.quizs.length - 1;
-            }
-          }
-          $scope.prev = function () {
-            if ($scope.numberQuiz >= 0) {
-              $scope.numberQuiz -= 1;
-            } else {
-              $scope.numberQuiz = 0;
-            }
-          }
-          $scope.showQuiz = function (numPage) {
-            if ($scope.numberQuiz == numPage) {
-              return true;
-            } else {
-              return false;
-            }
-
-          }
-        }, function (response) {
-          alert("Erroor");
-        });
-        $scope.Logout = function () {
-          sessionStorage.clear();
-        }
-        $scope.Login = function () {
-          x = sessionStorage.getItem('user');
-
-          if (x != null) {
-            document.getElementById("username").innerHTML = x;
-            return true;
+        window.onscroll = function () {
+          myFunction()
+        };
+  
+        var main = document.getElementById("main");
+        var header = document.getElementById("aside");
+        var sticky = main.offsetTop;
+        header.classList.add("aside-default");
+  
+        function myFunction() {
+          if (window.pageYOffset > sticky - 70) {
+            header.classList.add("sticky");
+            header.classList.remove("aside-default");
           } else {
-            return false;
+            header.classList.remove("sticky");
+            header.classList.add("aside-default");
           }
-
         }
-        $scope.a = "";
-        $http.get("../assets/db/Subjects.JSON").then(function (response) {
-          $scope.Subjects = response.data.x;
-
-        }, function (response) {
-          alert("Erroor");
-        });
-      });
-    </script>
+      </script>
+     <script src="../assets/js/quiz.js"></script>
     <!--   Core JS Files   -->
 
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>

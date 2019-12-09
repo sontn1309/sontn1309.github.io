@@ -81,8 +81,8 @@
                   </a>
                 </div>
                 <div ng-repeat="show in Subjects">
-                  <a href="" class="dropdown-item">
-                    <i class="material-icons">layers</i><span>{{show.Name}}</span>
+                    <a href="../pages/quiz.html" class="dropdown-item">
+                      <i class="material-icons">layers</i><span>{{show.Name}}</span>
                   </a>
                 </div>
               </div>
@@ -193,46 +193,8 @@
       </footer>
     </div>
   </div>
-  <script>
-    var app = angular.module("sontn1309", []);
-    app.controller("ctrl1", function ($scope, $http) {
-      $scope.Subjects = [];
-      $scope.account = [];
-      $scope.checkLogin = false;
-      $scope.showMsg = false;
-      $http.get("../assets/db/Students.JSON").then(function (response) {
-        $scope.account = response.data.x;
+  <script src="../assets/js/login-page.js"></script>
 
-        $scope.xmn = function () {
-          $scope.user = document.getElementById("username").value;
-          $scope.pass = document.getElementById("password").value;
-          angular.forEach($scope.account, function (item) {
-            if ($scope.user == item.username && $scope.pass == item.password) {
-              sessionStorage.setItem('user', $scope.user);
-              $scope.checkLogin = true;
-              Swal.fire(
-                'Success',
-                'Đăng nhập thành công!',
-                'success'
-              ).then(function () {
-                window.location.assign("../index.html");
-              });
-              
-            }
-          });
-          $scope.showMsg = !$scope.checkLogin;
-        }
-
-      }, function (response) {
-        alert("Lỗi kết nối tới máy chủ");
-      });
-      $http.get("../assets/db/Subjects.JSON").then(function (response) {
-        $scope.Subjects = response.data.x;
-      }, function (response) {
-        alert("Lỗi kết nối tới máy chủ");
-      });
-    });
-  </script>
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
