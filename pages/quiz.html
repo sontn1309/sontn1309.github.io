@@ -1,318 +1,168 @@
-<!--
- =========================================================
- Material Kit PRO - v2.1.1
- =========================================================
+<div class="page-header header-filter" data-parallax="true"
+  style="background-image: url('../assets/logos/banner.jpg');" ng-init="init()">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 ml-auto mr-auto text-center">
+        <h1 class="title" ng-bind="subjectName"></h1>
+        <h4>Thực hiện các bài Quiz online của Trường FPT Polytechnic</h4>
+        <br>
 
- Product Page: https://www.creative-tim.com/product/material-kit-pro`1
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main" style="position: relative;" id="main">
+  <div class="container">
 
- Coded by Creative Tim
-
- =========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Front-end WEB207
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-    name='viewport' />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css"
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <!-- CSS Files -->
-  <link href="../assets/css/material-kit.css?v=2.1.1" rel="stylesheet" />
-  <script src="../assets/js/jquery-3.4.1.min.js"></script>
-  <!-- Angular -->
-  <script src="../assets/js/angular.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-  <script src="https://kit.fontawesome.com/d8191d7536.js" crossorigin="anonymous"></script>
-</head>
-<style>
-  .scrollable-menu {
-    height: auto;
-    max-height: 500px;
-    overflow-x: hidden;
-  }
-  @media screen and (max-width: 520px) {
-     
-
-  }
-  .sticky {
-    position: fixed;
-    top: 80px;
-    right: 25px;
-  }
-
-  .aside-default {
-    position: absolute;
-    top: 10px;
-    right: 25px;
-  }
-  .sticky-quiz {
-    position: fixed;
-    top: 80px;
-    left: 25px;
-  }
-
-
-</style>
-
-<body class="profile-page sidebar-collapse" ng-app="sontn1309">
-  <script>
-    var sessionUser = sessionStorage.getItem('user');
-    if (sessionUser == null) {
-      Swal.fire('Bạn cần phải đăng nhập trước').then(function () {
-        window.location.assign("../pages/login-page.html");
-      })
-    }
-  </script>
-  <div ng-controller="ctrl1" ng-init="init()">
-    <nav class="navbar navbar-color-on-scroll navbar-transparent  fixed-top  navbar-expand-lg " color-on-scroll="100"
-      id="sectionsNav">
-      <div class="container">
-        <div class="navbar-translate">
-          <a class="navbar-brand" href="">
-            Trần Ngọc Sơn - PS08499</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ml-auto">
+    <div class="row">
+      <!-- open nav -->
+      <div class="col-3  float-right" id="aside">
+        <div class="col-md-12">
+          <ul class="nav nav-pills nav-pills-icons flex-column">
             <li class="nav-item">
-              <a href="../index.html" class=" nav-link">
-                <i class="material-icons">account_balance</i> Trang chủ
+              <a class="nav-link text-danger rounded-pill border border-danger" href="" ng-click="setViewMode()">
+                <i class="material-icons">dashboard</i>
+                <strong>
+                  <p ng-bind="view"></p>
+                </strong>
               </a>
             </li>
-            <li class="dropdown nav-item">
-              <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                <i class="material-icons">apps</i> Danh mục môn học
-              </a>
-
-              <div class="dropdown-menu dropdown-with-icons scrollable-menu ">
-                <div>
-                  <a href="../pages/subjects.html" class="dropdown-item">
-                    <i class="material-icons">layers</i><span>Tất cả môn học</span>
-                  </a>
-                </div>
-                <div ng-repeat="show in Subjects">
-                    <a href="../pages/quiz.html" class="dropdown-item">
-                      <i class="material-icons">layers</i><span>{{show.Name}}</span>
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li class="dropdown nav-item">
-              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                <i class="material-icons">view_day</i> Tài khoản
-              </a>
-              <div class="dropdown-menu dropdown-with-icons">
-                <a href="../pages/login-page.html" class="dropdown-item">
-                  <i class="material-icons">dns</i> Đăng nhập
-                </a>
-                <a href="../pages/signup-page.html" class="dropdown-item">
-                  <i class="material-icons">dns</i> Đăng kí
-                </a>
-                <a href="../pages/info-user.html" class="dropdown-item">
-                  <i class="material-icons">dns</i> Thông tin tài khoản
-                </a>
-              </div>
-            </li>
-            <li class="dropdown nav-item">
-              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                <i class="material-icons">view_carousel</i> Trợ giúp
-              </a>
-              <div class="dropdown-menu dropdown-with-icons">
-                <a href="../pages/contact.html" class="dropdown-item">
-                  <i class="material-icons">account_balance</i>Liên hệ - Góp ý
-                </a>
-              </div>
-            </li>
-            <li ng-show="!Login()" class="button-container nav-item iframe-extern">
-              <a href="../pages/login-page.html" class="btn  btn-rose btn-block">
-                <i class="material-icons">account_circle</i> Đăng nhập
+            <li class="nav-item">
+              <a class="nav-link text-danger rounded-pill border border-danger" href="" ng-click="getAmount()">
+                <i class="material-icons">dashboard</i>
+                <strong>
+                  <p> Kết thúc bài làm</p>
+                </strong>
               </a>
             </li>
-            <li ng-show="Login()" class="dropdown nav-item iframe-extern">
-              <a href="" class="btn  btn-rose btn-block" data-toggle="dropdown">
-                <i class="material-icons">account_circle</i> <span id="username"></span>
+            <li class="nav-item">
+              <a class="nav-link text-danger rounded-pill border border-danger" href="" ng-click="resetTime()">
+                <i class="material-icons">dashboard</i>
+                <strong>
+                  <p>Làm lại</p>
+                </strong>
               </a>
-              <div class="dropdown-menu dropdown-with-icons">
-                <a href="../pages/info-user.html" class="dropdown-item">
-                  <i class="material-icons">account_circle</i>Thông tin tài khoản
-                </a>
-                <a href="../index.html" ng-click="Logout()" class="dropdown-item">
-                  <i class="material-icons">account_balance</i>Đăng xuất
-                </a>
+            </li>
+            <li class="nav-item ">
+              <div class="nav-link text-danger rounded-pill border border-danger">
+                <h2 style="font-weight: 800;">{{minutesTimerCount}} phút {{secondsTimerCount}}</h2>
               </div>
             </li>
           </ul>
         </div>
       </div>
-    </nav>
-    <div class="page-header header-filter" data-parallax="true"
-      style="background-image: url('../assets/logos/banner.jpg');">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 ml-auto mr-auto text-center">
-            <h1 class="title" ng-bind="subjectName"></h1>
-            <h4>Thực hiện các bài Quiz online của Trường FPT Polytechnic</h4>
-            <br>
+      <!-- end nav -->
+      <div class="section section-text col-9" id="quiz">
+        <!-- Show quiz -->
+        <div ng-repeat="quiz in quizs|limitTo:10:0">
+          <div class="row" ng-show="showQuiz($index)">
+            <div class="card card-login card-hidden">
+              <div class="card-header bg-dark text-center">
+                <h4 class="card-title m-2" value="{{quiz.Id}}">Câu {{$index+1}} / 10 . {{quiz.Text}}</h4>
+              </div>
+              <div class="card-body">
+                <div class="form-check mb-4" ng-repeat="answer in quiz.Answers">
+                  <label class="form-check-label text-dark">
 
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="main" style="position: relative;" id="main">
-      <div class="container" >
-        
-        <div class="row">
-           <!-- open nav -->
-        <div class="col-3  float-right" id="aside">
-            <div class="col-md-12">
-              <ul class="nav nav-pills nav-pills-icons flex-column">
-                <li class="nav-item">
-                  <a class="nav-link text-danger rounded-pill border border-danger" href="" ng-click="setViewMode()">
-                    <i class="material-icons">dashboard</i>
-                    <strong>
-                      <p ng-bind="view"></p>
-                    </strong>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-danger rounded-pill border border-danger" href="" ng-click="getAmount()">
-                    <i class="material-icons">dashboard</i>
-                    <strong>
-                      <p> Kết thúc bài làm</p>
-                    </strong>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-danger rounded-pill border border-danger" href="" ng-click="resetTime()">
-                    <i class="material-icons">dashboard</i>
-                    <strong>
-                      <p>Làm lại</p>
-                    </strong>
-                  </a>
-                </li>
-                <li class="nav-item ">
-                  <div class="nav-link text-danger rounded-pill border border-danger">
-                    <h2 style="font-weight: 800;">{{minutesTimerCount}} phút {{secondsTimerCount}}</h2>
-                    </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- end nav -->
-          <div class="section section-text col-9" id="quiz">
-            <!-- Show quiz -->
-            <div  ng-repeat="quiz in quizs|limitTo:10:0">
-              <div class="row" ng-show="showQuiz($index)">
-                <div class="card card-login card-hidden">
-                  <div class="card-header bg-dark text-center">
-                    <h4 class="card-title m-2" value="{{quiz.Id}}">Câu {{$index+1}} / 10 . {{quiz.Text}}</h4>
-                  </div>
-                  <div class="card-body">
-                    <div class="form-check mb-4" ng-repeat="answer in quiz.Answers">
-                      <label class="form-check-label text-dark" >
-                          
-                        <input class="form-check-input" type="radio" name="{{quiz.Id}}"
-                          value="{{answer.Id}}" ng-model="quiz.useranser" ng-disabled="disabledInput"><strong>{{answer.Text}}  &nbsp; &nbsp; &nbsp;  <i id="{{answer.Id}}"></i>  </strong>   
-                          <span class="circle">
-                            <span class="check"></span>
-                            
-                          </span>
-                         
+                    <input class="form-check-input" type="radio" name="{{quiz.Id}}" value="{{answer.Id}}"
+                      ng-model="quiz.useranser" ng-disabled="disabledInput"><strong>{{answer.Text}} &nbsp; &nbsp; &nbsp;
+                      <i id="{{answer.Id}}"></i> </strong>
+                    <span class="circle">
+                      <span class="check"></span>
 
-                        </label>
-                       
-                    </div>
-                  </div>
-                  <div class="card-footer bg-rose" ng-hide="viewMode">
-                    <ul class="pagination">
-                      <li class="page-item">
-                        <button ng-click="prev()" class="btn btn-social btn-fill btn-tumblr" ng-disabled="disabledprev"> prev</a>
-                      </li>
+                    </span>
 
-                      <li class="page-item">
-                        <button href="" ng-click="next()" class="btn btn-social btn-fill btn-tumblr" ng-disabled="disablednext"> next </a>
-                      </li>
-                    </ul>
-                  </div>
+
+                  </label>
+
                 </div>
               </div>
-            </div>
-            <!-- end media-post -->
-          </div>
-        </div>
-      </div>
-      <div class="section">
-        <div class="container">
-          <div class="row">
-          </div>
-        </div>
-      </div>
-      <footer class="footer">
-        <div class="container">
+              <div class="card-footer bg-rose" ng-hide="viewMode">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <button ng-click="prev()" class="btn btn-social btn-fill btn-tumblr" ng-disabled="disabledprev">
+                      prev</a>
+                  </li>
 
-          <div class="copyright float-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, Update <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Ngọc Sơn</a>
+                  <li class="page-item">
+                    <button href="" ng-click="next()" class="btn btn-social btn-fill btn-tumblr"
+                      ng-disabled="disablednext"> next </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-      </footer>
+        <!-- end media-post -->
+      </div>
     </div>
+
+
+    <style>
+      .scrollable-menu {
+        height: auto;
+        max-height: 500px;
+        overflow-x: hidden;
+      }
+
+      .sticky {
+        position: fixed;
+        top: 80px;
+        right: 25px;
+      }
+
+      .aside-default {
+        position: absolute;
+        top: 10px;
+        right: 25px;
+      }
+
+      .sticky-quiz {
+        position: fixed;
+        top: 80px;
+        left: 25px;
+      }
+    </style>
+    <script>
+        var sessionUser = sessionStorage.getItem('user');
+        if (sessionUser == null) {
+          Swal.fire('Bạn cần phải đăng nhập trước').then(function () {
+            window.location.assign("../index.html#/login");
+          })
+        }
+      </script>
     <script>
         window.onscroll = function () {
+          quizFunction();
           myFunction()
         };
-       
-        var quiz=document.getElementById("quiz");
+        var quiz = document.getElementById("quiz");
         var main = document.getElementById("main");
         var header = document.getElementById("aside");
         var sticky = main.offsetTop;
         header.classList.add("aside-default");
-  
-        function myFunction() {
+        function quizFunction() {
           if (window.pageYOffset > sticky - 70) {
             header.classList.add("sticky");
-            header.classList.remove("aside-default");          
+            header.classList.remove("aside-default");
           } else {
             header.classList.remove("sticky");
             header.classList.add("aside-default");
-           
+  
           }
         }
+        var nav = document.getElementById("sectionsNav");
+    nav.classList.add("navbar-transparent");
+
+    function myFunction() {
+        if (window.pageYOffset > 70) {
+
+            nav.classList.remove("navbar-transparent");
+        } else {
+
+            nav.classList.add("navbar-transparent");
+        }
+    }
       </script>
-     <script src="../assets/js/quiz.js"></script>
-    <!--   Core JS Files   -->
-
-    <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="../assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
-    <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/material-kit.js?v=2.1.1" type="text/javascript"></script>
-
-
-
-</body>
-
-</html>
+  </div>
+</div>
