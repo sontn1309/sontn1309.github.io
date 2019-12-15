@@ -95,9 +95,9 @@
                                     </a>
                                 </div>
                                 <div ng-repeat="show in Subjects">
-                                        <a href="../pages/quiz.html" class="dropdown-item">
-                                            <i class="material-icons">layers</i><span>{{show.Name}}</span>
-                                        </a>
+                                    <a href="../pages/quiz.html" class="dropdown-item">
+                                        <i class="material-icons">layers</i><span>{{show.Name}}</span>
+                                    </a>
                                 </div>
                             </div>
                         </li>
@@ -143,7 +143,7 @@
                 <div class="row">
                     <div class="col-md-10 ml-auto mr-auto">
                         <div class="card card-signup">
-                            <h2 class="card-title text-center">Đăng kí</h2>
+                            <h2 class="card-title text-center">Đăng kí Thành Viên</h2>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-5 ml-auto">
@@ -196,96 +196,75 @@
                                             </button>
 
                                         </div>
-                                        <form class="form" method="" action="" name="register">
+                                        <form class="form" name="register">
                                             <div class="form-group">
                                                 <span class="text-danger text-center"
                                                     ng-show="register.username.$error.required">Vui lòng không để trống
                                                     tên tài khoản</span>
 
-                                                <div class="input-group">
-
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">
-                                                            <i class="material-icons">supervised_user_circle</i>
+                                                    <span class="input-group-text">
+                                                 
+                                                            <i class="material-icons">supervised_user_circle</i>&nbsp; &nbsp; &nbsp;<input type="text" ng-model="username" name="username"
+                                                            class="form-control" placeholder="Tên đăng nhập" required
+                                                            maxlength="25">
                                                         </span>
-                                                    </div>
-                                                    <input type="text" ng-model="username" name="username"
-                                                        class="form-control" placeholder="Tên đăng nhập" required
-                                                        maxlength="25">
-                                                </div>
+                                                
                                             </div>
                                             <div class="form-group">
                                                 <span class="text-danger text-center"
                                                     ng-show="register.fullname.$error.required">Vui lòng không để trống
                                                     họ và tên</span>
 
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
+                                              
+                                                   
                                                         <span class="input-group-text">
-                                                            <i class="material-icons">face</i>
+                                                            <i class="material-icons">face</i> &nbsp; &nbsp; &nbsp;<input type="text" ng-model="fullname" name="fullname"
+                                                            class="form-control" placeholder="Họ và tên.." required>
                                                         </span>
-                                                    </div>
-                                                    <input type="text" ng-model="fullname" name="fullname" class="form-control" placeholder="Họ và tên.." required>
-                                                </div>
+                                                    
+                                                    
+                                                
                                             </div>
                                             <div class="form-group">
                                                 <span class="text-danger text-center"
                                                     ng-show="register.email.$error.required">Vui lòng không để trống
                                                     tên tài khoản</span>
-                                                    <span class="text-danger text-center"
+                                                <span class="text-danger text-center"
                                                     ng-show="register.email.$error.pattern">Sai định dạng Email</span>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
+                                                
+                                                   
                                                         <span class="input-group-text">
-                                                            <i class="material-icons">mail</i>
+                                                            <i class="material-icons">mail</i>&nbsp; &nbsp; &nbsp; <input type="text" class="form-control" ng-model="email"
+                                                            name="email" placeholder="Địa chỉ email..."
+                                                            ng-pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                                                            required>
                                                         </span>
-                                                    </div> 
-                                                    <input type="text" class="form-control" ng-model="email" name="email"
-                                                        placeholder="Địa chỉ email..."    ng-pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required>
-                                                </div>
+                                                    
+                                                   
+                                                
                                             </div>
                                             <div class="form-group">
                                                 <span class="text-danger text-center"
                                                     ng-show="register.password.$error.required">Vui lòng không để trống
                                                     tên mật khẩu</span>
 
-                                                <div class="input-group">
+                                             
 
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">
-                                                            <i class="material-icons">lock_outline</i>
-                                                        </span>
-                                                    </div>
-                                                    <input type="password" ng-model="password" name="password" placeholder="Password..."
-                                                        class="form-control"  required/>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <span class="text-danger text-center"
-                                                    ng-show="register.repassword.$error.required">Vui lòng nhập lại password</span>
 
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">
-                                                            <i class="material-icons">lock_outline</i>
-                                                        </span>
-                                                    </div>
-                                                    <input type="password" ng-model="repassword" name="repassword"  placeholder="Nhập lại password..."
-                                                        class="form-control" required/>
-                                                </div>
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" value="" checked>
-                                                    <span class="form-check-sign">
-                                                        <span class="check"></span>
+                                                    <span class="input-group-text">
+                                                        <i class="material-icons">lock_outline</i>&nbsp; &nbsp; &nbsp;
+                                                        &nbsp; <input type="password" ng-model="password"
+                                                            name="password" placeholder="Password..."
+                                                            class="form-control" required />
                                                     </span>
-                                                    I agree to the
-                                                    <a href="#something">terms and conditions</a>.
-                                                </label>
+
+                                                
+
                                             </div>
+
                                             <div class="text-center">
-                                                <a href="#pablo" class="btn btn-primary btn-round">Get Started</a>
+                                                <button ng-click="a()" class="btn btn-primary btn-round"
+                                                    ng-disabled="!register.$valid">Đăng kí</button>
                                             </div>
                                         </form>
                                     </div>
@@ -309,7 +288,7 @@
             </footer>
         </div>
     </div>
-  <script src="../assets/js/signup-page.js"></script>
+    <script src="../assets/js/signup-page.js"></script>
     <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
     <script src="../assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>

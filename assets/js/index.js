@@ -2,6 +2,7 @@ var x;
 var app = angular.module("sontn1309", []);
 app.controller("ctrl1", function ($scope, $http) {
     $scope.Subjects = [];
+    $scope.showQuiz;
     $scope.Logout=function()
     {
         sessionStorage.clear();
@@ -21,6 +22,13 @@ app.controller("ctrl1", function ($scope, $http) {
     }
     $http.get("assets/db/Subjects.JSON").then(function (response) {
         $scope.Subjects = response.data.x;
+        $scope.showQuiz=function(subjectId,subjectName){
+            sessionStorage.setItem('subjectId',subjectId);
+            sessionStorage.setItem('subjectName',subjectName);
+            window.location.assign("../pages/quiz.html");
+          
+
+        }
     }, function (response) {
         alert("Erroor");
     });

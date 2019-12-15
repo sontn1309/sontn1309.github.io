@@ -13,6 +13,7 @@ app.controller("ctrl1", function ($scope, $http, $interval, $rootScope) {
   $scope.disabledprev = true;
   $scope.disablednext = false;
   $scope.disabledInput = false;
+  $scope.classList=false;
   $scope.setViewMode = function () {
     if ($scope.viewMode) {
       $scope.view = "Show full";
@@ -26,19 +27,28 @@ app.controller("ctrl1", function ($scope, $http, $interval, $rootScope) {
   $scope.resetTime = function () {
     $rootScope.mark = 0;
     $scope.disabledInput = false;
-    for (var i = 0; i < 9; i++) {
+
+    for (var i = 0; i <= 9&&($scope.classList); i++) {
+    
       document.getElementById($scope.quizs[i].AnswerId).classList.remove("text-success");
       document.getElementById($scope.quizs[i].AnswerId).classList.remove("fas");
       document.getElementById($scope.quizs[i].AnswerId).classList.remove("fa-check-circle");
-      if ($scope.quizs[i].useranser != null) {
+      if ($scope.quizs[i].useranser ===undefined||$scope.quizs[i].useranser ===null||$scope.quizs[i].useranser ==="") {
+        
+   
+      }else{
+
         document.getElementById($scope.quizs[i].useranser).classList.remove("text-danger");
         document.getElementById($scope.quizs[i].useranser).classList.remove("fas");
         document.getElementById($scope.quizs[i].useranser).classList.remove("fa-times-circle");
+        $scope.quizs[i].useranser = "";
       }
-      $scope.quizs[i].useranser = "";
+     
     }
-    for (var i = 0; i < 9; i++) {
+   
+    for (var i = 0; i <= 9; i++) {
       $scope.quizs[i].useranser = "";
+    
     }
     $scope.timerCount = 900;
     $scope.numberQuiz = 0; // trở về câu đầu tiên 
@@ -49,6 +59,8 @@ app.controller("ctrl1", function ($scope, $http, $interval, $rootScope) {
       element.checked = false;
     });
     $interval.cancel(stop);
+    $scope.classList=false;
+    console.log( $scope.classList)
     $scope.init();
   }
   // Đếm ngược thời gian
@@ -64,7 +76,10 @@ app.controller("ctrl1", function ($scope, $http, $interval, $rootScope) {
     }
   }
   // Đổ dữ liệu từ file vào biến
-  $http.get("../assets/db/Quizs/ADAV.js").then(function (response) {
+  var subjectId= sessionStorage.getItem('subjectId');
+  var subjectName= sessionStorage.getItem('subjectName');
+  $scope.subjectName=subjectName;
+  $http.get("../assets/db/Quizs/"+subjectId+".js").then(function (response) {
     $scope.quizs = response.data;
 
     $scope.next = function () {
@@ -80,7 +95,9 @@ app.controller("ctrl1", function ($scope, $http, $interval, $rootScope) {
     $scope.getAmount = function () {
       $rootScope.mark = 0;
       var checked = document.querySelectorAll(".form-check-input");
-      for (var i = 0; i < 9; i++) {
+      $scope.classList=true;
+      console.log($scope.classList)
+      for (var i = 0; i <= 9; i++) {
         document.getElementById($scope.quizs[i].AnswerId).classList.add("text-success");
         document.getElementById($scope.quizs[i].AnswerId).classList.add("fas");
         document.getElementById($scope.quizs[i].AnswerId).classList.add("fa-check-circle");

@@ -44,7 +44,10 @@
     max-height: 500px;
     overflow-x: hidden;
   }
+  @media screen and (max-width: 520px) {
+     
 
+  }
   .sticky {
     position: fixed;
     top: 80px;
@@ -56,6 +59,13 @@
     top: 10px;
     right: 25px;
   }
+  .sticky-quiz {
+    position: fixed;
+    top: 80px;
+    left: 25px;
+  }
+
+
 </style>
 
 <body class="profile-page sidebar-collapse" ng-app="sontn1309">
@@ -160,7 +170,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
-            <h1 class="title">Online Traning</h1>
+            <h1 class="title" ng-bind="subjectName"></h1>
             <h4>Thực hiện các bài Quiz online của Trường FPT Polytechnic</h4>
             <br>
 
@@ -209,7 +219,7 @@
             </div>
           </div>
           <!-- end nav -->
-          <div class="section section-text col-9">
+          <div class="section section-text col-9" id="quiz">
             <!-- Show quiz -->
             <div  ng-repeat="quiz in quizs|limitTo:10:0">
               <div class="row" ng-show="showQuiz($index)">
@@ -254,7 +264,6 @@
       <div class="section">
         <div class="container">
           <div class="row">
-
           </div>
         </div>
       </div>
@@ -275,7 +284,8 @@
         window.onscroll = function () {
           myFunction()
         };
-  
+       
+        var quiz=document.getElementById("quiz");
         var main = document.getElementById("main");
         var header = document.getElementById("aside");
         var sticky = main.offsetTop;
@@ -284,10 +294,11 @@
         function myFunction() {
           if (window.pageYOffset > sticky - 70) {
             header.classList.add("sticky");
-            header.classList.remove("aside-default");
+            header.classList.remove("aside-default");          
           } else {
             header.classList.remove("sticky");
             header.classList.add("aside-default");
+           
           }
         }
       </script>
